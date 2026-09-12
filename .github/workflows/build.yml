@@ -20,7 +20,7 @@ jobs:
           - os: macos-latest
             artifact_name: FormulaLens-macOS
             exe_name: FormulaLens
-          - os: ubuntu-latest
+          - os: ubuntu-22.04
             artifact_name: FormulaLens-Linux
             exe_name: FormulaLens
 
