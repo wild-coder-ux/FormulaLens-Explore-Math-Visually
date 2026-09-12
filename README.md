@@ -2,6 +2,23 @@
 
 A dark-themed desktop **equation viewer** for students — beginners through advanced. Built with **Tkinter** + **Matplotlib**, it renders line plots (`y = f(x)`), implicit curves (`f(x, y) = 0`), and complex-plane domain coloring, with difficulty-tiered presets spanning geometry, trig, calculus, ML, and complex analysis.
 
+## Download
+
+**No Python required.** Grab the ready-to-run app for your OS:
+
+### 👉 [Download the latest release](https://github.com/wild-coder-ux/FormulaLens-Explore-Math-Visually/releases/latest)
+
+Under **Assets** on that page you'll find:
+- `FormulaLens.exe` — Windows
+- `FormulaLens-macOS` — macOS
+- `FormulaLens-Linux` — Linux
+
+> **Windows note:** since the app isn't code-signed, Windows SmartScreen may show a blue "Windows protected your PC" warning the first time you run it. Click **More info** → **Run anyway** to continue — this is expected for small independent projects and not a sign anything is wrong.
+>
+> **macOS/Linux note:** you may need to mark the file as executable first (`chmod +x FormulaLens`) before running it.
+
+Prefer to run it from source instead? See [Installation](#installation) below.
+
 ![FormulaLens - Cartesian Curve - Folium of Descartes](image_1.png)
 
 ![FormulaLens - Cartesian Curve - Heart](image_2.png)
@@ -35,13 +52,25 @@ A dark-themed desktop **equation viewer** for students — beginners through adv
 - `numpy`
 - `matplotlib`
 - `scipy` (optional but recommended — enables `gamma`, `zeta`, `erf`, `besselj`; falls back to a reduced pure-Python set if missing)
-- `tkinter` (usually bundled with Python; on Linux you may need to install it separately, e.g. `sudo apt install python3-tk`)
+- `tkinter` — bundled with the official Python installer on **Windows** and **macOS** (python.org). On **Linux** you may need to install it separately, e.g. `sudo apt install python3-tk`.
 
-### Setup
+> FormulaLens is pure Python + Tkinter — it runs identically on Windows, macOS, and Linux. There is nothing OS-specific in the code.
+
+### Setup — Windows
+
+1. Install Python from [python.org/downloads](https://www.python.org/downloads/) — during install, check **"Add python.exe to PATH"**
+2. Download this repo (Code → Download ZIP, or `git clone` if you have Git installed) and unzip it
+3. Open Command Prompt (or PowerShell) in that folder and run:
+   ```cmd
+   pip install -r requirements.txt
+   python formulalens.py
+   ```
+
+### Setup — macOS / Linux
 
 ```bash
-git clone https://github.com/<your-username>/formulalens.git
-cd formulalens
+git clone https://github.com/wild-coder-ux/FormulaLens-Explore-Math-Visually.git
+cd FormulaLens-Explore-Math-Visually
 pip install -r requirements.txt
 python formulalens.py
 ```
@@ -103,7 +132,7 @@ This makes it possible to *see* things a real-valued line plot hides — for exa
 ## Project structure
 
 ```
-formulalens/
+FormulaLens-Explore-Math-Visually/
 ├── formulalens.py      # main application
 ├── requirements.txt
 ├── outputs/           # created at runtime (currently unused by the UI, reserved for exports)
@@ -124,4 +153,4 @@ Issues and pull requests are welcome. If you add a new preset or function, pleas
 
 ## License
 
-[MIT](LICENSE) 
+[MIT](LICENSE) — or replace with your license of choice.
