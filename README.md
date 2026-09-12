@@ -9,7 +9,7 @@ A dark-themed desktop **equation viewer** for students — beginners through adv
 ### 👉 [Download the latest release](https://github.com/wild-coder-ux/FormulaLens-Explore-Math-Visually/releases/latest)
 
 Under **Assets** on that page you'll find:
-- `FormulaLens.exe` — Windows
+- `FormulaLens-Windows.exe` — Windows
 - `FormulaLens-macOS` — macOS
 - `FormulaLens-Linux` — Linux
 
