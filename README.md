@@ -2,7 +2,9 @@
 
 A dark-themed desktop **equation viewer** for students — beginners through advanced. Built with **Tkinter** + **Matplotlib**, it renders line plots (`y = f(x)`), implicit curves (`f(x, y) = 0`), and complex-plane domain coloring, with difficulty-tiered presets spanning geometry, trig, calculus, ML, and complex analysis.
 
-![FormulaLens screenshot](docs/screenshot.png)
+![FormulaLens - [Cartesian Curve - Follium of Descartes](image_1.png)
+![FormulaLens - [Cartesian Curve - Heart](image_2.png)
+![FormulaLens - Trigonometry - Sine Wave](image_3.png)
 
 ## Features
 
