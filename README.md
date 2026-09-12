@@ -124,4 +124,4 @@ Issues and pull requests are welcome. If you add a new preset or function, pleas
 
 ## License
 
-[MIT](LICENSE) — or replace with your license of choice.
+[MIT](LICENSE) 
