@@ -1,0 +1,61 @@
+name: Build standalone executables
+
+# Runs whenever you push a version tag, e.g.:
+#   git tag v1.0.0
+#   git push origin v1.0.0
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:  # also allows manual runs from the Actions tab
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            artifact_name: FormulaLens-Windows
+            exe_name: FormulaLens.exe
+          - os: macos-latest
+            artifact_name: FormulaLens-macOS
+            exe_name: FormulaLens
+          - os: ubuntu-latest
+            artifact_name: FormulaLens-Linux
+            exe_name: FormulaLens
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install system Tk (Linux only)
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo apt-get update && sudo apt-get install -y python3-tk
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build executable
+        run: pyinstaller --onefile --windowed --name FormulaLens formulalens.py
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: dist/${{ matrix.exe_name }}
+
+      - name: Attach to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/${{ matrix.exe_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
